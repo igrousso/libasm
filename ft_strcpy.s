@@ -7,13 +7,13 @@ global ft_strcpy
 ft_strcpy:
     mov rax, rdi
 .loop:
-    mov bl, [rsi] ; on check byte par byte donc bl (taille de 1 byte) prend la valeur à l'adresse rsi
-    test bl, bl ; bl AND bl : (bl == 0 ?)
+    mov cl, [rsi] ; on check byte par byte donc cl (taille de 1 byte) prend la valeur à l'adresse rsi
+    test cl, cl ; cl AND cl : (cl == 0 ?)
     je .end
-    mov [rdi], bl ; remplace le byte à l'adresse rdi par bl
+    mov [rdi], cl ; remplace le byte à l'adresse rdi par cl
     inc rdi
     inc rsi
     jmp .loop
 .end:
-    mov [rdi], bl ; rajout du '\0'
+    mov [rdi], cl ; rajout du '\0'
     ret

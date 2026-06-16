@@ -6,8 +6,8 @@ global ft_strlen
 ft_strlen:
     xor rax, rax ; rax = 0
 .loop:
-    mov bl, [rdi + rax] ; bl prend la valeur à l'adresse rdi + rax
-    test bl, bl ; bl AND bl sans stocker le resultat, compare avec 0 ('\0')
+    mov cl, [rdi + rax] ; cl prend la valeur à l'adresse rdi + rax
+    test cl, cl ; cl AND cl sans stocker le resultat, compare avec 0 ('\0')
     je .end
     inc rax
     jmp .loop
