@@ -13,6 +13,7 @@
 CC = nasm
 
 FLAGS += -f elf64
+DEBUG ?=
 
 NAME = libasm.a
 
@@ -21,7 +22,8 @@ EXEC = executable
 MAIN = test.c
 
 SRC = ft_strlen.s \
-	  ft_strcpy.s
+	  ft_strcpy.s \
+	  ft_strcmp.s
 
 OBJ = $(SRC:.s=.o)
 
@@ -34,7 +36,7 @@ $(NAME) : $(OBJ)
 	$(CC) $(FLAGS) $< -o $@
 
 exec : $(NAME)
-	cc $(MAIN) $^ -o $(EXEC)
+	cc $(MAIN) $^ -o $(EXEC) $(DEBUG)
 
 clean :
 	$(RM) $(OBJ)
