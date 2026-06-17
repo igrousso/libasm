@@ -9,6 +9,10 @@ section .text
 ; rax : valeur de retour
 ft_atoi_base:
 .check_arg:
+    cmp rdi, 0x0
+    je .error_arg
+    cmp rsi, 0x0
+    je .error_arg
     mov r9, rdi ; save rdi
     mov rdi, rsi ; pass char *base en 1er argument pr strlen
     ; r9 = char *str
@@ -24,6 +28,8 @@ ft_atoi_base:
     mov cl, [r8]
     test cl, cl ; check si on arrive au '\0'
     je .end_loop
+    cmp cl, 0x7f    ; check si
+    ja .error_arg   ; on sort de l'ascii (0-127)
     cmp cl, 0x20     ; check si
     je .error_arg    ; espace
     cmp cl, 0x2b    ; check si
@@ -31,9 +37,9 @@ ft_atoi_base:
     cmp cl, 0x2d     ; check si
     je .error_arg    ; '-'
     cmp cl, 0xd     ; check si > de /r
-    jg .end_check   ; si > , on passe à la suite direct
+    ja .end_check   ; si > , on passe à la suite direct
     cmp cl, 0x7      ; check si >= de /a
-    jge .error_arg   ; si >= , alors c'est un whitespace 
+    jae .error_arg   ; si >= , alors c'est un whitespace 
 .end_check:
     mov r10, r8
 .check_loop_2:
@@ -53,9 +59,9 @@ ft_atoi_base:
     cmp cl, 0x20
     je .skip_whitespace
     cmp cl, 0xd
-    jg .end_skip
+    ja .end_skip
     cmp cl, 0x7
-    jl .end_skip
+    jb .end_skip
 .skip_whitespace:
     inc r9
     jmp .skip_whitespace_loop
