@@ -16,7 +16,9 @@ ft_read:
 .error:
     neg rax ; inverse rax, devient le bon code errno
     mov rdi, rax
+    sub rsp, 8 ; alignement de la stack
     call __errno_location ; return un pointeur sur errno
-    mov [rax], rdi ; change errno
+    add rsp, 8
+    mov [rax], edi ; change errno, utilisation de edi au lieu de rdi car errno est un int (4 bytes)
     mov rax, -1 ; code de retour de read
     ret

@@ -19,7 +19,7 @@ NAME = libasm.a
 
 EXEC = executable
 
-MAIN = test.c
+MAIN = main.c
 
 SRC = ft_strlen.s \
 	  ft_strcpy.s \

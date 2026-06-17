@@ -14,6 +14,7 @@ ft_strcmp:
     cmp al, cl
     jne .end
     test al, al ; equivalent de cmp al, 0 (en plus rapide)
+    je .end
     inc r10
     jmp .loop 
 .end:
