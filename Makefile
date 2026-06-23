@@ -27,7 +27,8 @@ SRC = ft_strlen.s \
 	  ft_write.s \
 	  ft_read.s \
 	  ft_strdup.s \
-	  ft_atoi_base.s
+	  ft_atoi_base.s \
+		ft_list_push_front.s
 
 OBJ = $(SRC:.s=.o)
 

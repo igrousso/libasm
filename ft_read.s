@@ -10,7 +10,7 @@ section .text
 ft_read:
     xor rax, rax ; syscall 0 =  read
     syscall
-    cmp rax, 0
+    test rax, rax
     jl .error
     ret
 .error:
