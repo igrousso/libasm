@@ -12,8 +12,10 @@
 
 CC = nasm
 
-FLAGS += -f elf64
-DEBUG ?=
+ADEBUG ?=
+CDEBUG ?=
+
+FLAGS += -f elf64 $(ADEBUG)
 
 NAME = libasm.a
 
@@ -28,7 +30,10 @@ SRC = ft_strlen.s \
 	  ft_read.s \
 	  ft_strdup.s \
 	  ft_atoi_base.s \
-		ft_list_push_front.s
+	  ft_list_push_front.s \
+	  ft_list_size.s \
+	  ft_list_sort.s \
+	  ft_list_remove_if.s
 
 OBJ = $(SRC:.s=.o)
 
@@ -41,7 +46,7 @@ $(NAME) : $(OBJ)
 	$(CC) $(FLAGS) $< -o $@
 
 exec : $(NAME)
-	cc $(MAIN) $^ -o $(EXEC) $(DEBUG)
+	cc $(MAIN) $^ -o $(EXEC) $(CDEBUG)
 
 clean :
 	$(RM) $(OBJ)

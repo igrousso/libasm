@@ -6,7 +6,7 @@ section .text
 ; rdi : 1er argument = int fd
 ; rsi : 2eme argument = void *buf
 ; rdx : 3eme argument = size_t count
-; rax : valeur de retour
+; rax : valeur de retour = int
 ft_read:
     xor rax, rax ; syscall 0 =  read
     syscall

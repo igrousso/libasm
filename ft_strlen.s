@@ -2,7 +2,7 @@ section .text
 global ft_strlen
 
 ; rdi : 1er argument = char *str
-; rax : valeur de retour
+; rax : valeur de retour = size_t
 ft_strlen:
     xor rax, rax ; rax = 0
 .loop:

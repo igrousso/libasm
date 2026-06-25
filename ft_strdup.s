@@ -6,7 +6,7 @@ global ft_strdup
 section .text
 
 ; rdi : 1er argument = char *str
-; rax : valeur de retour
+; rax : valeur de retour = char *
 ft_strdup:
     push rdi ; save ptr sur str
     call ft_strlen

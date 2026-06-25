@@ -3,7 +3,7 @@ section .text
 
 ; rdi : 1er argument = char *s1
 ; rsi : 2eme argument = char *s2
-; rax : valeur de retour
+; rax : valeur de retour = int
 ft_strcmp:
     xor r10, r10 ; r10 = 0
     xor rax, rax ; rax = 0

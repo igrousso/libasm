@@ -6,7 +6,7 @@ section .text
 
 ; rdi : 1er argument = char *str
 ; rsi : 2eme argument = char *base
-; rax : valeur de retour
+; rax : valeur de retour = int
 ft_atoi_base:
 .check_arg:
     cmp rdi, 0x0

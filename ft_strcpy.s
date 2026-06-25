@@ -3,7 +3,7 @@ global ft_strcpy
 
 ; rdi : 1er argument = char *dst
 ; rsi : 2eme argument = char *src
-; rax : valeur de retour
+; rax : valeur de retour = char *
 ft_strcpy:
     mov rax, rdi
 .loop:

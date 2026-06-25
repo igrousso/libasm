@@ -3,9 +3,9 @@ global ft_list_push_front
 
 section .text
 
-; rdi : 1er argument = t_list **begin_list
+; rdi : 1er argument = t_list **begin_list  (on suppose que begin_list pointe soit sur un noeud existant soit sur NULL)
 ; rsi : 2eme argument = void *data
-; rax : valeur de retour
+; rax : valeur de retour = void
 ft_list_push_front:
     test rdi, rdi
     je .end         ; si begin_list est null on return
