@@ -32,90 +32,106 @@ void free_fct(void *data)
 
 void test_atoi_base()
 {
-    printf("Invalid:\n%d\n", ft_atoi_base(NULL, NULL));
-    printf("%d\n", ft_atoi_base(NULL, "01"));
-    printf("%d\n", ft_atoi_base("01", ""));
-    printf("%d\n", ft_atoi_base("01", "1"));
-    printf("%d\n", ft_atoi_base("01", "1 "));
-    printf("%d\n", ft_atoi_base("01", "1+"));
-    printf("%d\n", ft_atoi_base("01", "1-"));
-    printf("%d\n\n", ft_atoi_base("01", "11"));
+    printf("\033[34mInvalid:\033[0m\nft_atoi_base(NULL, NULL): %d\n", ft_atoi_base(NULL, NULL));
+    printf("ft_atoi_base(NULL, \"01\"): %d\n", ft_atoi_base(NULL, "01"));
+    printf("ft_atoi_base(\"01\", \"\"): %d\n", ft_atoi_base("01", ""));
+    printf("ft_atoi_base(\"01\", \"1\"): %d\n", ft_atoi_base("01", "1"));
+    printf("ft_atoi_base(\"01\", \"1 \"): %d\n", ft_atoi_base("01", "1 "));
+    printf("ft_atoi_base(\"01\", \"1+\"): %d\n", ft_atoi_base("01", "1+"));
+    printf("ft_atoi_base(\"01\", \"1-\"): %d\n", ft_atoi_base("01", "1-"));
+    printf("ft_atoi_base(\"01\", \"11\"): %d\n\n", ft_atoi_base("01", "11"));
 
-    printf("Valid:\n%d\n", ft_atoi_base("01", "01"));
-    printf("%d\n", ft_atoi_base("+", "0123456789"));
-    printf("%d\n", ft_atoi_base("   ", "0123456789"));
-    printf("%d\n", ft_atoi_base("", "0123456789"));
-    printf("%d\n", ft_atoi_base("0123104", "012103"));
-    printf("%d\n", ft_atoi_base("99999999999999999999", "0123456789"));
-    printf("%d\n", ft_atoi_base("19", "01"));
-    printf("%d\n", ft_atoi_base("    01", "0123"));
-    printf("%d\n", ft_atoi_base("     -01", "01"));
-    printf("%d\n", ft_atoi_base("     +01", "01"));
-    printf("%d\n", ft_atoi_base("     01   ", "01"));
-    printf("%d\n", ft_atoi_base("     011101   ", "01"));
-    printf("%d\n", ft_atoi_base("++10", "01"));
-    printf("%d\n", ft_atoi_base("--10", "01"));
-    printf("%d\n", ft_atoi_base("+102", "01"));
-    printf("%d\n", ft_atoi_base("1021010", "01"));
-    printf("%d\n", ft_atoi_base("10+10100", "01"));
-    printf("%d\n", ft_atoi_base("10-1010110", "01"));
+    printf("\033[34mValid:\033[0m\nft_atoi_base(\"01\", \"01\"): %d\n", ft_atoi_base("01", "01"));
+    printf("ft_atoi_base(\"+\", \"0123456789\"): %d\n", ft_atoi_base("+", "0123456789"));
+    printf("ft_atoi_base(\"   \", \"0123456789\"): %d\n", ft_atoi_base("   ", "0123456789"));
+    printf("ft_atoi_base(\"\", \"0123456789\"): %d\n", ft_atoi_base("", "0123456789"));
+    printf("ft_atoi_base(\"0123104\", \"012103\"): %d\n", ft_atoi_base("0123104", "012103"));
+    printf("ft_atoi_base(\"99999999999999999999\", \"0123456789\"): %d\n", ft_atoi_base("99999999999999999999", "0123456789"));
+    printf("ft_atoi_base(\"19\", \"01\"): %d\n", ft_atoi_base("19", "01"));
+    printf("ft_atoi_base(\"    01\", \"0123\"): %d\n", ft_atoi_base("    01", "0123"));
+    printf("ft_atoi_base(\"     -01\", \"01\"): %d\n", ft_atoi_base("     -01", "01"));
+    printf("ft_atoi_base(\"     +01\", \"01\"): %d\n", ft_atoi_base("     +01", "01"));
+    printf("ft_atoi_base(\"     01   \", \"01\"): %d\n", ft_atoi_base("     01   ", "01"));
+    printf("ft_atoi_base(\"     011101   \", \"01\"): %d\n", ft_atoi_base("     011101   ", "01"));
+    printf("ft_atoi_base(\"++10\", \"01\"): %d\n", ft_atoi_base("++10", "01"));
+    printf("ft_atoi_base(\"--10\", \"01\"): %d\n", ft_atoi_base("--10", "01"));
+    printf("ft_atoi_base(\"+102\", \"01\"): %d\n", ft_atoi_base("+102", "01"));
+    printf("ft_atoi_base(\"1021010\", \"01\"): %d\n", ft_atoi_base("1021010", "01"));
+    printf("ft_atoi_base(\"10+10100\", \"01\"): %d\n", ft_atoi_base("10+10100", "01"));
+    printf("ft_atoi_base(\"10-1010110\", \"01\"): %d\n", ft_atoi_base("10-1010110", "01"));
 }
 
 void test_list_push_front()
 {
-    t_list *l = malloc(sizeof(t_list));
-    l->data = (void *)1;
-    l->next = NULL;
-    ft_list_push_front(&l, "test");
-    ft_list_push_front(&l, (void *)2);
-    ft_list_push_front(&l, (void *)3);
-    ft_list_push_front(&l, (void *)4);
-    ft_list_push_front(&l, (void *)5);
-    
+    t_list *l = NULL;
+    ft_list_push_front(&l, "push1");
+    ft_list_push_front(&l, "push2");
+    ft_list_push_front(&l, "push3");
+    ft_list_push_front(&l, "push4");
+    ft_list_push_front(&l, "push5");
+    printf("\033[34mList après push:\033[0m\n");
     while (l)
     {
-        t_list *freelst = l;
-
-        printf("%d\n", l->data);
+        printf("%s\n", l->data);
         l = l->next;
-        free(freelst);
     }
 }
 
 void test_list_size()
 {
     t_list *l = malloc(sizeof(t_list));
-    l->data = (void *)1;
+    l->data = "1";
     l->next = NULL;
-    ft_list_push_front(&l, (void *)2);
-    ft_list_push_front(&l, (void *)3);
-    ft_list_push_front(&l, (void *)4);
-    ft_list_push_front(&l, (void *)5);
-    ft_list_push_front(&l, (void *)6);
+    ft_list_push_front(&l, "2");
+    ft_list_push_front(&l, "3");
+    ft_list_push_front(&l, "4");
+    ft_list_push_front(&l, "5");
+    ft_list_push_front(&l, "6");
 
-    printf("%d\n", ft_list_size(l));
+    printf("\033[34mList1 :\033[0m\n");
+    t_list *tmp = l;
+    while (tmp)
+    {
+        printf("%s\n", tmp->data);
+        tmp = tmp->next;
+    }
+    printf("\033[32msize List1:\033[0m %d\n", ft_list_size(l));
+    free(l);
+    l = NULL;
+    printf("\n\033[34mList2 :\033[0m\n");
+    printf("\033[32msize List2:\033[0m %d\n", ft_list_size(l));
 }
 
 void test_list_sort()
 {
-    int *n1 = malloc(sizeof(int));
-    *n1 = 3;
-    int *n2 = malloc(sizeof(int));
-    *n2 = 2;
-    int *n3 = malloc(sizeof(int));
-    *n3 = 1;
     t_list *l = malloc(sizeof(t_list));
-    l->data = (void *)n1;
+    l->data = strdup("3");
     t_list *l1 = malloc(sizeof(t_list));
     l->next = l1;
-    l1->data = (void *)n2;
+    l1->data = strdup("2");
     t_list *l2 = malloc(sizeof(t_list));
     l1->next = l2;
-    l2->data = (void *)n3;
-    l2->next = NULL;
+    l2->data = strdup("1");
+    t_list *l3 = malloc(sizeof(t_list));
+    l2->next = l3;
+    l3->data = strdup("45");
+    t_list *l4 = malloc(sizeof(t_list));
+    l3->next = l4;
+    l4->data = strdup("-1");
+    t_list *l5 = malloc(sizeof(t_list));
+    l4->next = l5;
+    l5->data = strdup("2");
+    l5->next = NULL;
 
+    t_list *tmp = l;
+    printf("\033[34mList initial:\033[0m\n");
+    while (tmp)
+    {
+        printf("%s\n", tmp->data);
+        tmp = tmp->next;
+    }
     ft_list_sort(&l, (int (*)())ft_strcmp);
-
+    printf("\033[34mList après sort:\033[0m\n");
     while (l)
     {
         printf("%s\n", l->data);
@@ -125,13 +141,13 @@ void test_list_sort()
 
 void test_list_remove_if()
 {
-    char *n1 = ft_strdup("2");
+    char *n1 = ft_strdup("1");
     char *n2 = ft_strdup("2");
-    char *n3 = ft_strdup("2");
-    char *n4 = ft_strdup("2");
+    char *n3 = ft_strdup("1");
+    char *n4 = ft_strdup("1");
     char *n5 = ft_strdup("2");
     char *n6 = ft_strdup("2");
-    char *n7 = ft_strdup("2");
+    char *n7 = ft_strdup("1");
     char *data_ref = ft_strdup("2");
     t_list *l = NULL;
     ft_list_push_front(&l, n1);
@@ -141,6 +157,7 @@ void test_list_remove_if()
     ft_list_push_front(&l, n5);
     ft_list_push_front(&l, n6);
     ft_list_push_front(&l, n7);
+    printf("\033[34mList initial:\033[0m\n");
     t_list *tmp = l;
     while (tmp)
     {
@@ -149,15 +166,21 @@ void test_list_remove_if()
     }
     ft_list_remove_if(&l, (void *)data_ref, (int (*)())ft_strcmp, free_fct);
     tmp = l;
-    printf("\n\n");
+    printf("\n\033[32mft_list_remove_if avec data_ref = '2':\033[0m\n");
+    while (tmp)
+    {
+        printf("%s\n", tmp->data);
+        tmp = tmp->next;
+    }
+    data_ref = ft_strdup("1");
+    ft_list_remove_if(&l, (void *)data_ref, (int (*)())ft_strcmp, free_fct);
+    printf("\n\033[32mft_list_remove_if avec data_ref = '1':\033[0m\n");
     while (tmp)
     {
         printf("%s\n", tmp->data);
         tmp = tmp->next;
     }
 }
-
-
 
 void test_strlen()
 {
@@ -313,6 +336,14 @@ int main(int ac, char **av)
     test_read();
     printf("\n\n\033[31mTEST FT_STRDUP:\033[0m\n\n");
     test_strdup();
-
-
+    printf("\n\n\033[31mTEST FT_ATOI_BASE:\033[0m\n\n");
+    test_atoi_base();
+    printf("\n\n\033[31mTEST FT_LIST_PUSH_FRONT:\033[0m\n\n");
+    test_list_push_front();
+    printf("\n\n\033[31mTEST FT_LIST_SIZE:\033[0m\n\n");
+    test_list_size();
+    printf("\n\n\033[31mTEST FT_LIST_SORT:\033[0m\n\n");
+    test_list_sort();
+    printf("\n\n\033[31mTEST FT_LIST_REMOVE_IF:\033[0m\n\n");
+    test_list_remove_if();
 }
